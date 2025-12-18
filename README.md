@@ -2,6 +2,8 @@
 
 This Garry's Mod addon is a drop-in, backwards-compatible replacement for AvatarImage that enables support for Steam's animated avatars.
 
+https://github.com/user-attachments/assets/c206b442-a5e2-4737-8771-b7a0f27dd110
+
 ## How does it work?
 
 This addon leverages WebAssembly (WASM) to run a GIF-to-VTF conversion library directly within Garry's Mod via a [DHTML](https://wiki.facepunch.com/gmod/DHTML) panel.
