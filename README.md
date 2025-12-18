@@ -14,7 +14,7 @@ The VTF is written to the data/ folder, and the addon then displays it in-game.
 
 ## Installation
 
-You can install this addon via the [Workshop]().
+You can install this addon via the [Workshop](https://steamcommunity.com/sharedfiles/filedetails?id=3626277245).
 
 If added to a server collection, clients will automatically download it when they join the server.
 
