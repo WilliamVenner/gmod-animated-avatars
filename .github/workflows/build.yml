@@ -1,0 +1,41 @@
+name: Build & Release
+
+on:
+  push:
+    tags:
+      - "*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install wasm-pack
+        uses: jetli/wasm-pack-action@v0.4.0
+        with:
+          version: "latest"
+
+      - name: Build WASM library
+        run: wasm-pack build --target web
+        working-directory: ./wasm-gif-to-vtf
+
+      - name: Copy WASM artifacts
+        run: |
+          mkdir -p addons/animated_avatars/data_static/wasm_gif_to_vtf
+          cp wasm-gif-to-vtf/pkg/wasm_gif_to_vtf_bg.wasm addons/animated_avatars/data_static/wasm_gif_to_vtf/wasm_gif_to_vtf.wasm.dat
+          cp wasm-gif-to-vtf/pkg/wasm_gif_to_vtf.js addons/animated_avatars/data_static/wasm_gif_to_vtf/wasm_gif_to_vtf.js.txt
+
+      - name: Create release zip
+        run: |
+          cd addons/animated_avatars
+          zip -r ../../animated_avatars.zip .
+
+      - name: Publish to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: animated_avatars.zip
