@@ -26,7 +26,7 @@ jobs:
 
       - name: Copy WASM artifacts
         run: |
-          mkdir -p addons/animated_avatars/data_static/wasm_gif_to_vtf
+          mkdir -p addons/animated_avatars/data_static/animated_avatars
           cp wasm-gif-to-vtf/pkg/wasm_gif_to_vtf_bg.wasm addons/animated_avatars/data_static/animated_avatars/wasm_gif_to_vtf.wasm.dat
           cp wasm-gif-to-vtf/pkg/wasm_gif_to_vtf.js addons/animated_avatars/data_static/animated_avatars/wasm_gif_to_vtf.js.txt
 

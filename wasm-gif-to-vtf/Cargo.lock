@@ -1165,6 +1165,7 @@ checksum = "03c2856837ef78f57382f06b2b8563a2f512f7185d732608fd9176cb3b8edf0e"
 [[package]]
 name = "vtf"
 version = "0.3.1"
+source = "git+https://github.com/WilliamVenner/vtf-rs.git?branch=feat%2Fanimated-vtf#7d38a05efd76d2e7172e649321ac2e8cdfa55837"
 dependencies = [
  "byteorder",
  "image",
