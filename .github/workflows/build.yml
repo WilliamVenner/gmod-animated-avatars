@@ -27,8 +27,8 @@ jobs:
       - name: Copy WASM artifacts
         run: |
           mkdir -p addons/animated_avatars/data_static/wasm_gif_to_vtf
-          cp wasm-gif-to-vtf/pkg/wasm_gif_to_vtf_bg.wasm addons/animated_avatars/data_static/wasm_gif_to_vtf/wasm_gif_to_vtf.wasm.dat
-          cp wasm-gif-to-vtf/pkg/wasm_gif_to_vtf.js addons/animated_avatars/data_static/wasm_gif_to_vtf/wasm_gif_to_vtf.js.txt
+          cp wasm-gif-to-vtf/pkg/wasm_gif_to_vtf_bg.wasm addons/animated_avatars/data_static/animated_avatars/wasm_gif_to_vtf.wasm.dat
+          cp wasm-gif-to-vtf/pkg/wasm_gif_to_vtf.js addons/animated_avatars/data_static/animated_avatars/wasm_gif_to_vtf.js.txt
 
       - name: Create release zip
         run: |

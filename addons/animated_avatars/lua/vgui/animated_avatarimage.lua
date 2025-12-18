@@ -3,10 +3,10 @@ local cl_animated_avatars = CreateClientConVar("cl_animated_avatars", "1", true,
 
 file.CreateDir("animated_avatars")
 
-local vmtSrc = file.Read("data_static/wasm_gif_to_vtf/animated_avatarimage.vmt.txt", "GAME")
-local wasm = util.Base64Encode(file.Read("data_static/wasm_gif_to_vtf/wasm_gif_to_vtf.wasm.dat", "GAME"), true)
-local wasmJs = file.Read("data_static/wasm_gif_to_vtf/wasm_gif_to_vtf.js.txt", "GAME")
-local wasmHtml = file.Read("data_static/wasm_gif_to_vtf/wasm_gif_to_vtf.html.txt", "GAME")
+local vmtSrc = file.Read("data_static/animated_avatars/animated_avatarimage.vmt.txt", "GAME")
+local wasm = util.Base64Encode(file.Read("data_static/animated_avatars/wasm_gif_to_vtf.wasm.dat", "GAME"), true)
+local wasmJs = file.Read("data_static/animated_avatars/wasm_gif_to_vtf.js.txt", "GAME")
+local wasmHtml = file.Read("data_static/animated_avatars/wasm_gif_to_vtf.html.txt", "GAME")
 wasmHtml = wasmHtml:gsub("\"%%WASM_JS%%\"", wasmJs)
 wasmHtml = wasmHtml:gsub("%%WASM_BASE64%%", wasm)
 
