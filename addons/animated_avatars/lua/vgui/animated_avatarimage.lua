@@ -122,6 +122,8 @@ function PANEL:LoadAnimatedAvatar(steamid64, size)
         self:OnSteamProfileFetched(steamid64, cached, 200)
     else
         http.Fetch("https://steamcommunity.com/profiles/" .. steamid64, function(body, len, headers, code)
+            if (not IsValid(self)) then return end
+
             self:OnSteamProfileFetched(steamid64, body, code)
         end)
     end
@@ -160,6 +162,8 @@ function PANEL:OnSteamProfileFetched(steamid64, body, code)
     end
 
     http.Fetch(avatarUrl, function(gifData, gifLen, gifHeaders, gifCode)
+        if (not IsValid(self)) then return end
+
         self:OnAvatarGifFetched(steamid64, avatarUrl, gifData, gifCode)
     end)
 end
