@@ -1,3 +1,4 @@
+use base64::Engine;
 use wasm_bindgen::prelude::*;
 use std::io::Cursor;
 use image::{codecs::gif::GifDecoder, AnimationDecoder};
@@ -48,7 +49,7 @@ pub fn wasm_gif_to_vtf(gif: &[u8]) -> Result<String, JsValue> {
             let mut string = String::with_capacity((vtf_bytes.len() * 4 / 3 + 4) + 32);
             string.push_str(avg_delay.to_string().as_str());
             string.push(':');
-            string.push_str(&base64::encode(&vtf_bytes));
+            string.push_str(&base64::engine::general_purpose::STANDARD_NO_PAD.encode(&vtf_bytes));
             string
         })
 }
