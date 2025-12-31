@@ -23,13 +23,13 @@ pub fn gif_to_vtf(gif: &[u8]) -> Result<(Vec<u8>, f32), Error> {
         let (numer, denom) = frame.delay().numer_denom_ms();
         let delay = (numer as f32 / denom as f32) / 1000.0;
         avg_delay += delay;
-    
+
         let buffer = frame.into_buffer();
         let buffer = image::imageops::resize(
             &buffer,
             128,
             128,
-            image::imageops::FilterType::Lanczos3,
+            image::imageops::FilterType::Triangle,
         );
 
         vtf = vtf.add_frame(image::DynamicImage::ImageRgba8(buffer))?;
